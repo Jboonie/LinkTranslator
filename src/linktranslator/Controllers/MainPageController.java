@@ -23,12 +23,21 @@
  */
 package linktranslator.Controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import linktranslator.StaticData.Paths;
+import linktranslator.StaticData.Strings;
 
 /**
  *
@@ -36,18 +45,48 @@ import javafx.scene.control.Label;
  */
 public class MainPageController implements Initializable {
     
+    private ResourceBundle activeLanguage;
+    
+    //BUTTON BEHAVIOR
     @FXML
-    private Label label;
+    private void showSettingsPage(ActionEvent event){
+        pageLaunch(Paths.FXML_SETTINGS_PAGE, activeLanguage, Strings.PAGE_TITLE_SETTINGS);
+    }
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+    private void showAboutPage(ActionEvent event){
+        pageLaunch(Paths.FXML_ABOUT_PAGE, activeLanguage, Strings.PAGE_TITLE_ABOUT);
     }
+    
+    @FXML
+    private void showHowToPage(ActionEvent event){
+            pageLaunch(Paths.FXML_HOWTO_PAGE, activeLanguage, Strings.PAGE_TITLE_HOWTO);
+    }
+    
+
+    //END BUTTON BEHAVIOR
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+    
+        private void pageLaunch(String fxmlLocation, ResourceBundle bundle, String pageTitle){
+        try {
+            FXMLLoader loadedFXML = new FXMLLoader(getClass().getResource(fxmlLocation), bundle);
+            Parent root = loadedFXML.load();
+            Stage newStage = new Stage(); 
+            Scene scene = new Scene(root);
+            
+            newStage.setScene(scene);
+//            newStage.getIcons().add(Paths.IMAGE_BIRD);
+            newStage.setTitle(pageTitle);
+            newStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MainPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
     
 }

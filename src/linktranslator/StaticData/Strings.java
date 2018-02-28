@@ -33,13 +33,13 @@ import java.util.Arrays;
  */
 public class Strings {
 
-//    private static final String VERSION = "0.2";
-//    private static final String APPNAME = "PollyCLI";
-//    private static final String TITLEBAR = APPNAME + " " + VERSION;
-//    public static final String MainPageTitle = TITLEBAR;
-//    public static final String SettingsPageTitle = TITLEBAR + " - Settings";
-//    public static final String SettingsAWSHelpTitle = TITLEBAR + " - AWS Configuration Help";
-//    public static final String AboutPageTitle = TITLEBAR + " - About";
+    private static final String VERSION = "0.1";
+    private static final String APPNAME = "Link Translator";
+    private static final String TITLEBAR = APPNAME + " " + VERSION;
+    public static final String PAGE_TITLE_MAIN = TITLEBAR;
+    public static final String PAGE_TITLE_SETTINGS = TITLEBAR + " - Settings";
+    public static final String PAGE_TITLE_ABOUT = TITLEBAR + " - About";
+    public static final String PAGE_TITLE_HOWTO = TITLEBAR + " - How To";
 //    
 //    public static String SETTINGS_OUTPUT = "OUTPUT";
 //    public static String SETTINGS_AWSCMD = "AWSDIRECTORY";

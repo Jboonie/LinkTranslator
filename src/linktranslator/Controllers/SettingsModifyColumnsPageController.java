@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License
  *
  * Copyright 2018 Jacob Boone.
@@ -21,38 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package linktranslator;
+package linktranslator.Controllers;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import linktranslator.StaticData.Paths;
-import linktranslator.StaticData.Strings;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 
 /**
+ * FXML Controller class
  *
  * @author Jacob Boone
  */
-public class Main extends Application {
-    
-    @Override
-    public void start(Stage stage) throws Exception {
-        FXMLLoader MainPageLoader = new FXMLLoader(getClass().getResource(Paths.FXML_MAIN_PAGE), Paths.ENG_BUNDLE);
-        
-        Parent root = MainPageLoader.load();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle(Strings.PAGE_TITLE_MAIN);
-        stage.show();
-    }
+public class SettingsModifyColumnsPageController implements Initializable {
 
     /**
-     * @param args the command line arguments
+     * Initializes the controller class.
      */
-    public static void main(String[] args) {
-        launch(args);
-    }
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }    
     
 }

@@ -23,8 +23,8 @@
  */
 package linktranslator.StaticData;
 
+import java.io.File;
 import java.util.ResourceBundle;
-import javafx.scene.image.Image;
 import linktranslator.DataStructures.SupportedLanguage;
 
 
@@ -36,11 +36,14 @@ public class Paths {
 
     //FXML
     public static String FXML_MAIN_PAGE = "/linktranslator/FXML/MainPage.fxml";
+    public static String FXML_SETTINGS_PAGE = "/linktranslator/FXML/SettingsPage.fxml";
+    public static String FXML_ABOUT_PAGE = "/linktranslator/FXML/AboutPage.fxml";
+    public static String FXML_HOWTO_PAGE = "/linktranslator/FXML/HowToPage.fxml";
     
     //SETTINGS
     public static String SETTINGS_DIRECTORY = "Settings";
-    public static String SETTINGS_APP_SETTINGS = "Application.xml";
-    public static String SETTINGS_DATA_SETTINGS = "Data.xml";
+    public static String SETTINGS_APP_SETTINGS = SETTINGS_DIRECTORY + File.separatorChar + "Application.xml";
+    public static String SETTINGS_DATA_SETTINGS = SETTINGS_DIRECTORY + File.separatorChar + "Data.xml";
     
     //BUNDLES
     private static String LANG_EN_NAME = "English";

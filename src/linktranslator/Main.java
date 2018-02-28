@@ -10,16 +10,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import linktranslator.StaticData.Paths;
 
 /**
  *
  * @author Jacob Boone
  */
-public class LinkTranslator extends Application {
+public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(Paths.FXML_MAIN_PAGE));
         
         Scene scene = new Scene(root);
         

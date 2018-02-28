@@ -23,10 +23,6 @@
  */
 package linktranslator.StaticData;
 
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  *
  * @author Jacob Boone
@@ -40,6 +36,9 @@ public class Strings {
     public static final String PAGE_TITLE_SETTINGS = TITLEBAR + " - Settings";
     public static final String PAGE_TITLE_ABOUT = TITLEBAR + " - About";
     public static final String PAGE_TITLE_HOWTO = TITLEBAR + " - How To";
+    public static final String PAGE_TITLE_SETTINGS_MODIFY_COLUMNS = TITLEBAR + " - Modify Columns";
+    public static final String PAGE_TITLE_SETTINGS_MODIFY_ROW = TITLEBAR + " - Modify Row";
+    public static final String PAGE_TITLE_SETTINGS_ADD_ROW = TITLEBAR + " - Add Row";
 //    
 //    public static String SETTINGS_OUTPUT = "OUTPUT";
 //    public static String SETTINGS_AWSCMD = "AWSDIRECTORY";

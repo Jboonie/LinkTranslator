@@ -37,6 +37,9 @@ public class Paths {
     //FXML
     public static String FXML_MAIN_PAGE = "/linktranslator/FXML/MainPage.fxml";
     public static String FXML_SETTINGS_PAGE = "/linktranslator/FXML/SettingsPage.fxml";
+    public static String FXML_SETTINGS_ADD_ROW_PAGE = "/linktranslator/FXML/SettingsAddRowPage.fxml";
+    public static String FXML_SETTINGS_MODIFY_ROW_PAGE = "/linktranslator/FXML/SettingsModifyRowPage.fxml";
+    public static String FXML_SETTINGS_MODIFY_COLUMN_PAGE = "/linktranslator/FXML/SettingsModifyColumnsPage.fxml";
     public static String FXML_ABOUT_PAGE = "/linktranslator/FXML/AboutPage.fxml";
     public static String FXML_HOWTO_PAGE = "/linktranslator/FXML/HowToPage.fxml";
     

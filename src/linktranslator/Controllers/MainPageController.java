@@ -68,7 +68,7 @@ public class MainPageController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        activeLanguage = Paths.ENG_BUNDLE;
     }
     
         private void pageLaunch(String fxmlLocation, ResourceBundle bundle, String pageTitle){

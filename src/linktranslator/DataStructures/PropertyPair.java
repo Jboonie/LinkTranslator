@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License
  *
  * Copyright 2018 Jacob Boone.
@@ -21,41 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package linktranslator;
-
-import java.io.File;
-import java.util.Properties;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import linktranslator.IO.PropertiesManager;
-import linktranslator.StaticData.Paths;
-import linktranslator.StaticData.Strings;
+package linktranslator.DataStructures;
 
 /**
  *
  * @author Jacob Boone
  */
-public class Main extends Application {
-    
-    @Override
-    public void start(Stage stage) throws Exception {
-        FXMLLoader MainPageLoader = new FXMLLoader(getClass().getResource(Paths.FXML_MAIN_PAGE), Paths.ENG_BUNDLE);
-        
-        Parent root = MainPageLoader.load();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle(Strings.PAGE_TITLE_MAIN);
-        stage.show();
+public class PropertyPair {
+ 
+    private String KEY;
+    private String VALUE;
+
+    public PropertyPair(String key, String value) {
+        this.KEY = key;
+        this.VALUE = value;
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
+    public String getKey() {
+        return KEY;
     }
-    
+
+    public String getValue() {
+        return VALUE;
+    }
+
+    public void setValue(String value) {
+        this.VALUE = value;
+    }
+
+    public void setKey(String key) {
+        this.KEY = key;
+    }
 }

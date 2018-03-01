@@ -58,6 +58,7 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.setTitle(Strings.PAGE_TITLE_MAIN);
         stage.show();
+        controller.loadToggleLabels();
     }
 
     /**

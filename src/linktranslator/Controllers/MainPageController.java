@@ -25,6 +25,7 @@ package linktranslator.Controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,8 +35,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+import linktranslator.DataStructures.PropertyPair;
 import linktranslator.Logic.PropertiesController;
 import linktranslator.StaticData.Paths;
 import linktranslator.StaticData.Strings;
@@ -49,6 +53,16 @@ public class MainPageController implements Initializable {
     private PropertiesController DATA_CONTROLLER;
     private PropertiesController SETTINGS_CONTROLLER;
     private ResourceBundle activeLanguage;
+    private boolean togglePointedLeft = false;
+    
+    @FXML
+    private Label leftToggleLabel;
+    @FXML
+    private Label rightToggleLabel;
+    @FXML
+    private Button toggleButton;
+    @FXML
+    private TextArea textArea;
     
     //BUTTON BEHAVIOR
     @FXML
@@ -109,12 +123,37 @@ public class MainPageController implements Initializable {
         Logger.getLogger(MainPageController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @FXML
+    private void convertButton(ActionEvent event){
+        ArrayList<PropertyPair> pairs = DATA_CONTROLLER.getPairs();
+         
+        String text = textArea.getText();
+        
+        if(togglePointedLeft){
+            for(PropertyPair pair : pairs){
+               text = text.replace(pair.getValue(), pair.getKey());
+            }   
+        }
+        else{
+            for(PropertyPair pair : pairs){
+               text = text.replace(pair.getKey(), pair.getValue());
+            }
+        }
+        textArea.setText(text);
+    }
+    
+    @FXML
+    private void toggleButton(ActionEvent event){
+        buttonToggle();
+    }
 
     //END BUTTON BEHAVIOR
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         activeLanguage = Paths.ENG_BUNDLE;
+        buttonToggle();
     }
         
     public void loadDataController(PropertiesController dataController){
@@ -124,4 +163,24 @@ public class MainPageController implements Initializable {
     public void loadSettingsController(PropertiesController settingsController){
         SETTINGS_CONTROLLER = settingsController;
     }    
+    
+    public void buttonToggle(){
+        if(togglePointedLeft){
+            leftToggleLabel.setVisible(false);
+            rightToggleLabel.setVisible(true);
+            togglePointedLeft = false;
+            toggleButton.setText("->");
+        }
+        else{
+            leftToggleLabel.setVisible(true);
+            rightToggleLabel.setVisible(false);
+            togglePointedLeft = true;
+            toggleButton.setText("<-");
+        }
+    }
+    
+    public void loadToggleLabels(){
+        leftToggleLabel.setText(SETTINGS_CONTROLLER.get(Strings.SETTINGS_KEY_LEFT_COLUMN, "Key").getValue());
+        rightToggleLabel.setText(SETTINGS_CONTROLLER.get(Strings.SETTINGS_KEY_RIGHT_COLUMN, "Value").getValue());
+    }
 }

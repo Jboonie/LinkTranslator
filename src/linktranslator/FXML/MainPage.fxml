@@ -50,7 +50,7 @@ THE SOFTWARE.
       <HBox alignment="CENTER" layoutX="14.0" layoutY="59.0" prefHeight="30.0" prefWidth="200.0" spacing="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
          <children>
             <Label fx:id="leftToggleLabel" />
-            <Button fx:id="toggleButton" mnemonicParsing="false" text="%toggle" />
+            <Button fx:id="toggleButton" mnemonicParsing="false" onAction="#toggleButton" text="%toggle" />
             <Label fx:id="rightToggleLabel" />
          </children>
       </HBox>
@@ -58,7 +58,7 @@ THE SOFTWARE.
       <HBox alignment="CENTER_RIGHT" layoutX="71.0" layoutY="435.0" prefHeight="30.0" prefWidth="200.0" spacing="400.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
          <children>
             <Label fx:id="processingLabel" />
-            <Button fx:id="processingButton" mnemonicParsing="false" text="%convert" />
+            <Button fx:id="processingButton" mnemonicParsing="false" onAction="#convertButton" text="%convert" />
          </children>
       </HBox>
    </children>

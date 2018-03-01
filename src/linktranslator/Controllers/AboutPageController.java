@@ -25,7 +25,12 @@ package linktranslator.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import linktranslator.StaticData.Strings;
 
 /**
  * FXML Controller class
@@ -34,12 +39,20 @@ import javafx.fxml.Initializable;
  */
 public class AboutPageController implements Initializable {
 
+    @FXML
+    private ScrollPane scrollPane;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        WebView aboutBrowser = new WebView();
+   
+        WebEngine aboutEngine = aboutBrowser.getEngine();
+        
+        aboutEngine.load(Strings.PROJECT_WEBSITE_URL);
+        
+        scrollPane.setContent(aboutBrowser);
+    }   
     
 }

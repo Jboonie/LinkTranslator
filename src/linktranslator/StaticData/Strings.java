@@ -42,6 +42,8 @@ public class Strings {
     
     public static final String SETTINGS_KEY_LEFT_COLUMN = "LEFT_COLUMN";
     public static final String SETTINGS_KEY_RIGHT_COLUMN = "RIGHT_COLUMN";
+    
+    public static String PROJECT_WEBSITE_URL = "https://github.com/Jboonie/LinkTranslator";
 //    
 //    public static String SETTINGS_OUTPUT = "OUTPUT";
 //    public static String SETTINGS_AWSCMD = "AWSDIRECTORY";

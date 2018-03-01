@@ -24,13 +24,13 @@
 package linktranslator;
 
 import java.io.File;
-import java.util.Properties;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import linktranslator.IO.PropertiesManager;
+import linktranslator.Controllers.MainPageController;
+import linktranslator.Logic.PropertiesController;
 import linktranslator.StaticData.Paths;
 import linktranslator.StaticData.Strings;
 
@@ -44,7 +44,16 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader MainPageLoader = new FXMLLoader(getClass().getResource(Paths.FXML_MAIN_PAGE), Paths.ENG_BUNDLE);
         
+        PropertiesController DATA_CONTROLLER = new PropertiesController(new File(Paths.SETTINGS_DATA_SETTINGS));        
+        PropertiesController SETTINGS_CONTROLLER = new PropertiesController(new File(Paths.SETTINGS_APP_SETTINGS));
+        
+        
         Parent root = MainPageLoader.load();
+        
+        MainPageController controller = MainPageLoader.<MainPageController>getController();
+        controller.loadDataController(DATA_CONTROLLER);
+        controller.loadSettingsController(SETTINGS_CONTROLLER);
+        
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle(Strings.PAGE_TITLE_MAIN);

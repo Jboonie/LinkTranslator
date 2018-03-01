@@ -36,6 +36,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import linktranslator.Logic.PropertiesController;
 import linktranslator.StaticData.Paths;
 import linktranslator.StaticData.Strings;
 
@@ -45,24 +46,69 @@ import linktranslator.StaticData.Strings;
  */
 public class MainPageController implements Initializable {
     
+    private PropertiesController DATA_CONTROLLER;
+    private PropertiesController SETTINGS_CONTROLLER;
     private ResourceBundle activeLanguage;
     
     //BUTTON BEHAVIOR
     @FXML
     private void showSettingsPage(ActionEvent event){
-        pageLaunch(Paths.FXML_SETTINGS_PAGE, activeLanguage, Strings.PAGE_TITLE_SETTINGS);
+
+        try {
+            FXMLLoader loadedFXML = new FXMLLoader(getClass().getResource(Paths.FXML_SETTINGS_PAGE), activeLanguage);
+            
+            Parent root = loadedFXML.load();
+            
+            SettingsPageController controller = loadedFXML.<SettingsPageController>getController(); 
+            controller.loadDataController(DATA_CONTROLLER);
+            controller.loadSettingsController(SETTINGS_CONTROLLER);
+            controller.loadThisController(controller);
+            
+            Stage newStage = new Stage(); 
+            Scene scene = new Scene(root);
+            newStage.setScene(scene);
+//            newStage.getIcons().add(Paths.IMAGE_BIRD);
+            newStage.setTitle(Strings.PAGE_TITLE_SETTINGS);
+            newStage.show();
+            controller.drawDataTable();
+        } catch (IOException ex) {
+        Logger.getLogger(MainPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @FXML
     private void showAboutPage(ActionEvent event){
-        pageLaunch(Paths.FXML_ABOUT_PAGE, activeLanguage, Strings.PAGE_TITLE_ABOUT);
+        try {
+            FXMLLoader loadedFXML = new FXMLLoader(getClass().getResource(Paths.FXML_ABOUT_PAGE), activeLanguage);
+
+            Parent root = loadedFXML.load();
+            Stage newStage = new Stage(); 
+            Scene scene = new Scene(root);
+            newStage.setScene(scene);
+//            newStage.getIcons().add(Paths.IMAGE_BIRD);
+            newStage.setTitle(Strings.PAGE_TITLE_ABOUT);
+            newStage.show();
+        } catch (IOException ex) {
+        Logger.getLogger(MainPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @FXML
     private void showHowToPage(ActionEvent event){
-            pageLaunch(Paths.FXML_HOWTO_PAGE, activeLanguage, Strings.PAGE_TITLE_HOWTO);
+        try {
+            FXMLLoader loadedFXML = new FXMLLoader(getClass().getResource(Paths.FXML_HOWTO_PAGE), activeLanguage);
+            Parent root = loadedFXML.load();
+            Stage newStage = new Stage(); 
+            Scene scene = new Scene(root);
+
+            newStage.setScene(scene);
+//            newStage.getIcons().add(Paths.IMAGE_BIRD);
+            newStage.setTitle(Strings.PAGE_TITLE_HOWTO);
+            newStage.show();
+        } catch (IOException ex) {
+        Logger.getLogger(MainPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
 
     //END BUTTON BEHAVIOR
     
@@ -70,23 +116,12 @@ public class MainPageController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         activeLanguage = Paths.ENG_BUNDLE;
     }
-    
-        private void pageLaunch(String fxmlLocation, ResourceBundle bundle, String pageTitle){
-        try {
-            FXMLLoader loadedFXML = new FXMLLoader(getClass().getResource(fxmlLocation), bundle);
-            Parent root = loadedFXML.load();
-            Stage newStage = new Stage(); 
-            Scene scene = new Scene(root);
-            
-            newStage.setScene(scene);
-//            newStage.getIcons().add(Paths.IMAGE_BIRD);
-            newStage.setTitle(pageTitle);
-            newStage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(MainPageController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+    public void loadDataController(PropertiesController dataController){
+        DATA_CONTROLLER = dataController;
     }
-
     
-    
+    public void loadSettingsController(PropertiesController settingsController){
+        SETTINGS_CONTROLLER = settingsController;
+    }    
 }

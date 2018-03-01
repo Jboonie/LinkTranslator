@@ -32,7 +32,7 @@ THE SOFTWARE.
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linktranslator.Controllers.SettingsPageController">
+<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linktranslator.Controllers.SettingsPageController">
     <stylesheets>
         <URL value="@/linktranslator/Styles/styles.css" />
     </stylesheets>
@@ -53,7 +53,7 @@ THE SOFTWARE.
       </HBox>
       <HBox alignment="CENTER_RIGHT" layoutX="14.0" layoutY="286.0" prefWidth="200.0" spacing="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="deleteRow" mnemonicParsing="false" text="%deleteRow" />
+            <Button fx:id="deleteRow" mnemonicParsing="false" onAction="#deleteRow" text="%deleteRow" />
             <Button fx:id="modifyRow" mnemonicParsing="false" onAction="#showModifyRowPage" text="%modifyRow" />
             <Button fx:id="addRow" mnemonicParsing="false" onAction="#showAddRowPage" text="%addRow" />
          </children>

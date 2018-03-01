@@ -25,7 +25,12 @@ package linktranslator.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
+import linktranslator.DataStructures.PropertyPair;
+import linktranslator.Logic.PropertiesController;
 
 /**
  * FXML Controller class
@@ -34,12 +39,49 @@ import javafx.fxml.Initializable;
  */
 public class SettingsModifyRowPageController implements Initializable {
 
+    private PropertiesController DATA_CONTROLLER;
+    private PropertiesController SETTINGS_CONTROLLER;
+    private SettingsPageController PARRENT_CONTROLLER;
+    private PropertyPair TARGET_PAIR;
+    
+    @FXML 
+    private TextField leftTextField;
+    @FXML 
+    private TextField rightTextField;
+    
+    @FXML
+    public void add(ActionEvent event){
+        PropertyPair newPair = new PropertyPair(leftTextField.getText(), rightTextField.getText());
+        DATA_CONTROLLER.add(newPair);
+        DATA_CONTROLLER.remove(TARGET_PAIR);
+        PARRENT_CONTROLLER.drawDataTable();
+        TARGET_PAIR = newPair;
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
+
+    void loadDataController(PropertiesController DATA_CONTROLLER) {
+        this.DATA_CONTROLLER = DATA_CONTROLLER;
+    }
+
+    void loadSettingsController(PropertiesController SETTINGS_CONTROLLER) {
+        this.SETTINGS_CONTROLLER = SETTINGS_CONTROLLER;
+    }
+
+    void loadParrentController(SettingsPageController PARRENT_CONTROLLER) {
+        this.PARRENT_CONTROLLER = PARRENT_CONTROLLER;
+    }
+    
+    void loadTargetPair(PropertyPair TARGET_PAIR){
+        this.TARGET_PAIR = TARGET_PAIR;
+        leftTextField.setText(TARGET_PAIR.getKey());
+        rightTextField.setText(TARGET_PAIR.getValue());
+    }
     
 }

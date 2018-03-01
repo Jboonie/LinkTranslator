@@ -3,5 +3,7 @@
 <properties>
 <comment/>
 <entry key="A">B</entry>
+<entry key="RIGHT_COLUMN">SharePoint</entry>
+<entry key="LEFT_COLUMN">CAD</entry>
 <entry key="Z">J</entry>
 </properties>

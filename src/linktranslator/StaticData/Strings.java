@@ -39,6 +39,9 @@ public class Strings {
     public static final String PAGE_TITLE_SETTINGS_MODIFY_COLUMNS = TITLEBAR + " - Modify Columns";
     public static final String PAGE_TITLE_SETTINGS_MODIFY_ROW = TITLEBAR + " - Modify Row";
     public static final String PAGE_TITLE_SETTINGS_ADD_ROW = TITLEBAR + " - Add Row";
+    
+    public static final String SETTINGS_KEY_LEFT_COLUMN = "LEFT_COLUMN";
+    public static final String SETTINGS_KEY_RIGHT_COLUMN = "RIGHT_COLUMN";
 //    
 //    public static String SETTINGS_OUTPUT = "OUTPUT";
 //    public static String SETTINGS_AWSCMD = "AWSDIRECTORY";

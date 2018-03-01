@@ -25,7 +25,13 @@ package linktranslator.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
+import linktranslator.DataStructures.PropertyPair;
+import linktranslator.Logic.PropertiesController;
+import linktranslator.StaticData.Strings;
 
 /**
  * FXML Controller class
@@ -34,12 +40,46 @@ import javafx.fxml.Initializable;
  */
 public class SettingsModifyColumnsPageController implements Initializable {
 
+    private PropertiesController DATA_CONTROLLER;
+    private PropertiesController SETTINGS_CONTROLLER;
+    private SettingsPageController PARRENT_CONTROLLER;
+    
+    @FXML
+    private TextField leftTextField;
+    @FXML
+    private TextField rightTextField;
+    
+    @FXML
+    public void add(ActionEvent event){
+        SETTINGS_CONTROLLER.add(new PropertyPair(Strings.SETTINGS_KEY_LEFT_COLUMN, leftTextField.getText()));
+        SETTINGS_CONTROLLER.add(new PropertyPair(Strings.SETTINGS_KEY_RIGHT_COLUMN, rightTextField.getText()));
+        PARRENT_CONTROLLER.drawDataTable();
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
-    
+
+    void loadDataController(PropertiesController DATA_CONTROLLER) {
+        this.DATA_CONTROLLER = DATA_CONTROLLER;
+    }
+
+    void loadSettingsController(PropertiesController SETTINGS_CONTROLLER) {
+        this.SETTINGS_CONTROLLER = SETTINGS_CONTROLLER;
+    }
+
+    void loadParrentController(SettingsPageController PARRENT_CONTROLLER) {
+        this.PARRENT_CONTROLLER = PARRENT_CONTROLLER;
+    }
+
+    public void populateModify(){
+        PropertyPair left = SETTINGS_CONTROLLER.get(Strings.SETTINGS_KEY_LEFT_COLUMN, "Key");
+        PropertyPair right = SETTINGS_CONTROLLER.get(Strings.SETTINGS_KEY_RIGHT_COLUMN, "Value");
+        leftTextField.setText(left.getValue());
+        rightTextField.setText(right.getValue());
+    }
 }

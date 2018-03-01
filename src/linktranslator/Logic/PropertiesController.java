@@ -49,6 +49,14 @@ public class PropertiesController {
         updatePairs();
     }
     
+    public PropertyPair get(String key, String backup){
+        
+        String value = PROPERTIES.getProperty(key, backup);
+        PropertyPair pair = new PropertyPair(key, value);
+        this.add(pair);
+        return pair;
+    }
+    
     public void add(PropertyPair pair){
         PROPERTIES.setProperty(pair.getKey(), pair.getValue());
         maintainIntegrity();
@@ -65,6 +73,7 @@ public class PropertiesController {
     public ArrayList<PropertyPair> getPairs(){
         maintainIntegrity();
         PROPERTY_MANAGER.writeProperties(PROPERTIES);
+        PROPERTIES = PROPERTY_MANAGER.readProperties();
         updatePairs();
         return PROPERTY_PAIRS;
     }

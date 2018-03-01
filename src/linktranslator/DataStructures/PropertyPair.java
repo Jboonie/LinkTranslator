@@ -23,33 +23,35 @@
  */
 package linktranslator.DataStructures;
 
+import javafx.beans.property.SimpleStringProperty;
+
 /**
  *
  * @author Jacob Boone
  */
 public class PropertyPair {
  
-    private String KEY;
-    private String VALUE;
+    private SimpleStringProperty key;
+    private SimpleStringProperty value;
 
     public PropertyPair(String key, String value) {
-        this.KEY = key;
-        this.VALUE = value;
+        this.key = new SimpleStringProperty(key);
+        this.value = new SimpleStringProperty(value);
     }
 
-    public String getKey() {
-        return KEY;
+    public  String getKey() {
+        return key.get();
     }
 
     public String getValue() {
-        return VALUE;
+        return value.get();
     }
 
     public void setValue(String value) {
-        this.VALUE = value;
+        this.value.set(value);
     }
 
     public void setKey(String key) {
-        this.KEY = key;
+        this.key.set(key);
     }
 }

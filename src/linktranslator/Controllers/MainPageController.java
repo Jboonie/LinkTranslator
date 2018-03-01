@@ -169,13 +169,13 @@ public class MainPageController implements Initializable {
             leftToggleLabel.setVisible(false);
             rightToggleLabel.setVisible(true);
             togglePointedLeft = false;
-            toggleButton.setText("->");
+            toggleButton.setText("Convert To ->");
         }
         else{
             leftToggleLabel.setVisible(true);
             rightToggleLabel.setVisible(false);
             togglePointedLeft = true;
-            toggleButton.setText("<-");
+            toggleButton.setText("<- Convert To");
         }
     }
     

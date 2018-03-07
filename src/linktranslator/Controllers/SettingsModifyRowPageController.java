@@ -29,6 +29,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import linktranslator.DataStructures.PropertyPair;
 import linktranslator.Logic.PropertiesController;
 
@@ -56,6 +57,12 @@ public class SettingsModifyRowPageController implements Initializable {
         DATA_CONTROLLER.remove(TARGET_PAIR);
         PARRENT_CONTROLLER.drawDataTable();
         TARGET_PAIR = newPair;
+    }
+    
+    @FXML
+    public void cancel(ActionEvent event){
+        Stage window = (Stage) leftTextField.getScene().getWindow();
+        window.close();
     }
     
     /**

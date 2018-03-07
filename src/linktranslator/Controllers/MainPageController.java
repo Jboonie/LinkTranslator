@@ -81,7 +81,7 @@ public class MainPageController implements Initializable {
             Stage newStage = new Stage(); 
             Scene scene = new Scene(root);
             newStage.setScene(scene);
-//            newStage.getIcons().add(Paths.IMAGE_BIRD);
+            newStage.getIcons().add(Paths.IMAGE_LINKS);
             newStage.setTitle(Strings.PAGE_TITLE_SETTINGS);
             newStage.show();
             controller.drawDataTable();
@@ -99,7 +99,7 @@ public class MainPageController implements Initializable {
             Stage newStage = new Stage(); 
             Scene scene = new Scene(root);
             newStage.setScene(scene);
-//            newStage.getIcons().add(Paths.IMAGE_BIRD);
+            newStage.getIcons().add(Paths.IMAGE_LINKS);
             newStage.setTitle(Strings.PAGE_TITLE_ABOUT);
             newStage.show();
         } catch (IOException ex) {
@@ -116,7 +116,7 @@ public class MainPageController implements Initializable {
             Scene scene = new Scene(root);
 
             newStage.setScene(scene);
-//            newStage.getIcons().add(Paths.IMAGE_BIRD);
+            newStage.getIcons().add(Paths.IMAGE_LINKS);
             newStage.setTitle(Strings.PAGE_TITLE_HOWTO);
             newStage.show();
         } catch (IOException ex) {

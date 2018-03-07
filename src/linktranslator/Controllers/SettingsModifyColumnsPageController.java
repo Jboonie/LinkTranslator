@@ -29,6 +29,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import linktranslator.DataStructures.PropertyPair;
 import linktranslator.Logic.PropertiesController;
 import linktranslator.StaticData.Strings;
@@ -54,6 +55,12 @@ public class SettingsModifyColumnsPageController implements Initializable {
         SETTINGS_CONTROLLER.add(new PropertyPair(Strings.SETTINGS_KEY_LEFT_COLUMN, leftTextField.getText()));
         SETTINGS_CONTROLLER.add(new PropertyPair(Strings.SETTINGS_KEY_RIGHT_COLUMN, rightTextField.getText()));
         PARRENT_CONTROLLER.drawDataTable();
+    }
+    
+    @FXML
+    public void cancel(ActionEvent event){
+        Stage window = (Stage) leftTextField.getScene().getWindow();
+        window.close();
     }
     
     /**

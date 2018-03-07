@@ -25,6 +25,7 @@ package linktranslator.StaticData;
 
 import java.io.File;
 import java.util.ResourceBundle;
+import javafx.scene.image.Image;
 import linktranslator.DataStructures.SupportedLanguage;
 
 
@@ -53,17 +54,10 @@ public class Paths {
     public static String LANG_EN = "linktranslator.Bundles.en";
     public static ResourceBundle ENG_BUNDLE = ResourceBundle.getBundle(Paths.LANG_EN);
     private static SupportedLanguage LANG_SUPPORTED_EN = new SupportedLanguage(LANG_EN_NAME, ENG_BUNDLE);
-    
-    
-//    //FXML
-//    public static String MAINFXML = "/pollycli/FXML/MainPage.fxml";
-//    public static String ABOUTFXML = "/pollycli/FXML/AboutPage.fxml";
-//    public static String SETTINGSFXML = "/pollycli/FXML/SettingsPage.fxml";
-//    public static String AWSHELPFXML = "/pollycli/FXML/AWSHelpPage.fxml";
-//    
-//    //RESOURCES
-//    private static String PNG_BIRD = "/pollycli/Resources/bird.png";
-//    public static Image IMAGE_BIRD = new Image(PNG_BIRD);
+   
+    //RESOURCES
+    private static String PNG_BIRD = "/linktranslator/Resources/LinkTranslator.png";
+    public static Image IMAGE_LINKS = new Image(PNG_BIRD);
 //    
 //    //BUNDLES
 //    
@@ -93,9 +87,7 @@ public class Paths {
 //    
 //    //TO ADD NEW LANGUAGE CREATE PROP FILE AND THEN ADD TO BUNDLES & THIS ARRAY
 //    public static SupportedLanguage[] SUPPORTED_LANGUAGES = {LANG_SUPPORTED_EN, LANG_SUPPORTED_ES, LANG_SUPPORTED_FR, LANG_SUPPORTED_CH};
-//    
-//    //Client Side Properties
-//    public static String CLIENT_PROPERTIES = "config.properties";
+
     
     public Paths() {
     }

@@ -23,19 +23,14 @@
  */
 package linktranslator.Controllers;
 
-import com.sun.javafx.scene.control.skin.TableViewSkin;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Platform;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -92,7 +87,7 @@ public class SettingsPageController implements Initializable {
             Stage newStage = new Stage(); 
             Scene scene = new Scene(root);
             newStage.setScene(scene);
-//            newStage.getIcons().add(Paths.IMAGE_BIRD);
+            newStage.getIcons().add(Paths.IMAGE_LINKS);
             newStage.setTitle(Strings.PAGE_TITLE_SETTINGS_MODIFY_COLUMNS);
             newStage.show();
             controller.populateModify();
@@ -117,7 +112,7 @@ public class SettingsPageController implements Initializable {
                 Stage newStage = new Stage(); 
                 Scene scene = new Scene(root);
                 newStage.setScene(scene);
-    //            newStage.getIcons().add(Paths.IMAGE_BIRD);
+                newStage.getIcons().add(Paths.IMAGE_LINKS);
                 newStage.setTitle(Strings.PAGE_TITLE_SETTINGS_MODIFY_ROW);
                 newStage.show();
                 controller.loadTargetPair(pairToModify);
@@ -143,7 +138,7 @@ public class SettingsPageController implements Initializable {
             Scene scene = new Scene(root);
             
             newStage.setScene(scene);
-//            newStage.getIcons().add(Paths.IMAGE_BIRD);
+            newStage.getIcons().add(Paths.IMAGE_LINKS);
             newStage.setTitle(Strings.PAGE_TITLE_SETTINGS_ADD_ROW);
             newStage.show();
         } catch (IOException ex) {
@@ -153,9 +148,11 @@ public class SettingsPageController implements Initializable {
     
     @FXML
     public void deleteRow(ActionEvent event){
-        PropertyPair target = table.getSelectionModel().getSelectedItem();
-        DATA_CONTROLLER.remove(target);
-        drawDataTable();
+        if(!table.getSelectionModel().isEmpty()){
+            PropertyPair target = table.getSelectionModel().getSelectedItem();
+            DATA_CONTROLLER.remove(target);
+            drawDataTable();
+        }
     }
     
     @FXML

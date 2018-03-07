@@ -57,6 +57,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle(Strings.PAGE_TITLE_MAIN);
+        stage.getIcons().add(Paths.IMAGE_LINKS);
         stage.show();
         controller.loadToggleLabels();
     }

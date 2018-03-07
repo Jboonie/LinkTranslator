@@ -39,7 +39,7 @@
             </VBox>
             <HBox alignment="CENTER" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" text="%cancel" />
+                  <Button mnemonicParsing="false" onAction="#cancel" text="%cancel" />
                   <Button mnemonicParsing="false" onAction="#add" text="%add" />
                </children>
                <padding>

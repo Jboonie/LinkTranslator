@@ -37,7 +37,7 @@
       </VBox>
       <HBox alignment="CENTER" layoutX="14.0" layoutY="286.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button mnemonicParsing="false" text="%cancel" />
+            <Button mnemonicParsing="false" onAction="#cancel" text="%cancel" />
             <Button mnemonicParsing="false" onAction="#add" text="%save" />
          </children>
          <padding>
